@@ -5,49 +5,21 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { PRIMARY_COLORS, COLOR } from 'react-native-material-design';
+import { StackNavigator, TabNavigator, NavigationActions } from 'react-navigation';
+import Button from 'react-native-button';
 
-export default class Shouldibuythebag extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import HomeScreen from './js/home';
+import ItemsScreen from './js/items';
+import QuizzScreen from './js/quizz';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+const shouldibuythebag = StackNavigator({
+    Home: { screen: HomeScreen },
+    Items: { screen: ItemsScreen },
+    Quizz: { screen: QuizzScreen },    
 });
 
-AppRegistry.registerComponent('Shouldibuythebag', () => Shouldibuythebag);
+export default shouldibuythebag;
+
+AppRegistry.registerComponent('Shouldibuythebag', () => shouldibuythebag);
