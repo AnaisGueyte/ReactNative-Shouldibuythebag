@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Alert, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { PRIMARY_COLORS, COLOR } from 'react-native-material-design';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 import Button from 'react-native-button';
+
 
 class QuizzScreen extends React.Component {
   
@@ -10,7 +11,12 @@ class QuizzScreen extends React.Component {
     title: `Should I buy the ${navigation.state.params.item}`,
   });
 
+  
   render(){ 
+  
+    var question = require('./questions');
+    var myString = question.q1_likeit;
+    var myString2 = question.a1_likeit;
     var params = this.props.navigation.state.params.item;
     var imgSource;
     var imgBanner;
@@ -34,8 +40,22 @@ class QuizzScreen extends React.Component {
             </View>
 
             <View style={styles.itemsBackground}>
-              <Text> { params } </Text>
-              <Image style={styles.items} source={imgSource}></Image>
+              <Text style={styles.question}>  { question.q1_likeit }  </Text>
+                
+                <View style={styles.button}>
+                  <Button style={{padding: 30, right: 30, fontFamily: 'cochin', fontSize: 20, color: 'black'}} 
+                    styleDisabled={{color: 'black'}} 
+                     >
+                    Yes
+                  </Button> 
+                    <Button style={{borderTopColor: 'pink', padding: 30, right: 30, fontFamily: 'cochin', fontSize: 20, color: 'black'}} 
+                    styleDisabled={{color: 'black'}} 
+                     >
+                    No
+                  </Button> 
+                   <Button label="Primary" primary={true} style={style} />
+    <Button label="Secondary" secondary={true} style={style} />
+              </View>
             </View>
 
       </View>
@@ -72,6 +92,29 @@ itemsBackground: {
     marginBottom: 20,
     borderRadius: 10,
   },
+  question:{
+    padding: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 25,
+    fontFamily: 'Cochin',
+  },
+  button: {
+    width: 375,
+    height: 50,
+    borderColor: '#fff',
+    borderRadius: 10,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: 'center',
+  },
+  submit:{
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff'
+  },
 });
 
+
 export default QuizzScreen;
+
