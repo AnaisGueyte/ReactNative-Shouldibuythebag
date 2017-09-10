@@ -13,20 +13,32 @@ class QuizzScreen extends React.Component {
   render(){ 
     var params = this.props.navigation.state.params.item;
     var imgSource;
+    var imgBanner;
 
     if ( params == 'bag'){
+      imgBanner = require('Shouldibuythebag/img/bag.jpg');
       imgSource = require('Shouldibuythebag/img/sac.jpg');
-    } else if( params = 'shoes'){
-        imgSource = require('Shouldibuythebag/img/shoesillu.jpg');
-      } else {
-        imgSource = require('Shouldibuythebag/img/dressillu.jpg');
-      }
+    } else if( params == 'shoes'){
+      imgBanner = require('Shouldibuythebag/img/shoes.png');
+      imgSource = require('Shouldibuythebag/img/shoesillu.jpg');
+    } else {
+      imgBanner = require('Shouldibuythebag/img/cintres.jpg');
+      imgSource = require('Shouldibuythebag/img/dressillu.jpg');
+    }
 
     return (
+      <View style={styles.quizz}>
+
+            <View style={styles.bannerView}>
+              <Image style={styles.banner} source={imgBanner}></Image>
+            </View>
+
             <View style={styles.itemsBackground}>
               <Text> { params } </Text>
               <Image style={styles.items} source={imgSource}></Image>
             </View>
+
+      </View>
           );  
     }   
 }
@@ -34,9 +46,22 @@ class QuizzScreen extends React.Component {
 
 
 const styles = StyleSheet.create({
+  quizz:{
+    width: 375,
+    height: 700,
+    backgroundColor: 'white',
+  },
+  bannerView:{
+    width: 375,
+    height: 100,
+  },
+  banner:{
+    width: 375,
+    height: 100,
+  },
 itemsBackground: {
     width: 375,
-    height: 600, 
+    height: 250, 
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
