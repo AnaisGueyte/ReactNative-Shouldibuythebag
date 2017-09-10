@@ -4,23 +4,33 @@ import { PRIMARY_COLORS, COLOR } from 'react-native-material-design';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 import Button from 'react-native-button';
 
-
 class QuizzScreen extends React.Component {
-   static navigationOptions = {
-    title: 'Quizz: Should I buy it?',
-  };
-
-render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <View style={styles.itemsBackground}>
-        
-        <Image style={styles.items} source={require('Shouldibuythebag/img/sac.jpg')}></Image>
   
-      </View>
-    );
-  }  
+  static navigationOptions = ({ navigation }) => ({
+    title: `Should I buy the ${navigation.state.params.item}`,
+  });
+
+  render(){ 
+    var params = this.props.navigation.state.params.item;
+    var imgSource;
+
+    if ( params == 'bag'){
+      imgSource = require('Shouldibuythebag/img/sac.jpg');
+    } else if( params = 'shoes'){
+        imgSource = require('Shouldibuythebag/img/shoesillu.jpg');
+      } else {
+        imgSource = require('Shouldibuythebag/img/dressillu.jpg');
+      }
+
+    return (
+            <View style={styles.itemsBackground}>
+              <Text> { params } </Text>
+              <Image style={styles.items} source={imgSource}></Image>
+            </View>
+          );  
+    }   
 }
+
 
 
 const styles = StyleSheet.create({

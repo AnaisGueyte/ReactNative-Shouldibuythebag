@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Alert } from 'react-native';
 import { PRIMARY_COLORS, COLOR } from 'react-native-material-design';
