@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Alert, TouchableOpacity, TouchableHighlight } from 'react-native';
-import { PRIMARY_COLORS, COLOR } from 'react-native-material-design';
-import { StackNavigator, NavigationActions } from 'react-navigation';
-import Button from 'react-native-button';
+import { StyleSheet, Text, View, Image} from 'react-native';
+import { Container, Content, Button } from 'native-base';
 
 
 class QuizzScreen extends React.Component {
@@ -35,34 +33,25 @@ class QuizzScreen extends React.Component {
     return (
       <View style={styles.quizz}>
 
-            <View style={styles.bannerView}>
-              <Image style={styles.banner} source={imgBanner}></Image>
-            </View>
+        <View style={styles.bannerView}>
+          <Image style={styles.banner} source={imgBanner}></Image>
+        </View>
 
-            <View style={styles.itemsBackground}>
-              <Text style={styles.question}>  { question.q1_likeit }  </Text>
+        <View style={styles.itemsBackground}>
+          <Text style={styles.question}>  { question.q1_likeit }  </Text>
                 
-                <View style={styles.button}>
-                  <Button style={{padding: 30, right: 30, fontFamily: 'cochin', fontSize: 20, color: 'black'}} 
-                    styleDisabled={{color: 'black'}} 
-                     >
-                    Yes
-                  </Button> 
-                    <Button style={{borderTopColor: 'pink', padding: 30, right: 30, fontFamily: 'cochin', fontSize: 20, color: 'black'}} 
-                    styleDisabled={{color: 'black'}} 
-                     >
-                    No
-                  </Button> 
-                   <Button label="Primary" primary={true} style={style} />
-    <Button label="Secondary" secondary={true} style={style} />
-              </View>
-            </View>
+          <View style={styles.button}>
+
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}}><Text style={{color: 'red'}}>No</Text></Button>
+            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}}><Text style={{color: 'green'}}>Yes</Text></Button>
+
+          </View>
+        </View>
 
       </View>
-          );  
-    }   
+      );  
+  }   
 }
-
 
 
 const styles = StyleSheet.create({
