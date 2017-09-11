@@ -84,3 +84,66 @@ var a1_likeit = "Really? Why do you even take the test then!";
 	var a14_buyit = "Well then, why do you have doubt about buying the " + "? Treat yo self!";
 	// if no
 	var a14bis_buyit = "Life is too short, buy the " ;
+
+
+
+
+	// function thankHonesty(question_title) {
+//     $('#question_title').empty();
+//     $('#buttons_zone').remove();
+//     $('#question_title').append(a3_needit);
+//     $('#content_zone').append(dontneedit_gif);
+//     $('#content_zone').append(return_button);
+
+//     analyticsquizz_complete = true;
+//     analytics_end = question_title;
+//     console.log("in thank honesty function");
+// }
+
+// function dontBuyIt(question_title) {
+//     $('#question_title').empty();
+//     $('#buttons_zone').remove();
+//     $('#question_title').append(dontbuyit);
+//     $('#content_zone').append(dontbuyit_gif);
+//     $('#content_zone').append(return_button);
+
+//     analyticsquizz_complete = true;
+//     analytics_end = question_title;
+//     console.log("in dont buy it function");
+// }
+
+// function treatYoSelf(question_title) {
+//     $('#question_title').empty();
+//     $('#buttons_zone').remove();
+//     $('#question_title').append(a14_buyit);
+//     $('#content_zone').append(treatyoself_gif);
+//     $('#content_zone').append(return_button);
+
+//     analyticsquizz_complete = true;
+//     analytics_end = question_title;
+// }
+
+// function jeezDontBuyIt(question_title) {
+//     $('#question_title').empty();
+//     $('#buttons_zone').remove();
+//     $('#question_title').append(jeezdontbuyit);
+//     $('#content_zone').append(jeezdontbuyit_gif);
+//     $('#content_zone').append(return_button);
+
+//     analyticsquizz_complete = true;
+//     analytics_end = question_title;
+
+// }
+
+// function lifeIsTooShort(question_title) {
+//     $('#question_title').empty();
+//     $('#buttons_zone').remove();
+//     $('#question_title').append(a14bis_buyit);
+//     $('#content_zone').append(lifetooshort_gif);
+//     $('#content_zone').append(return_button);
+
+//     analyticsquizz_complete = true;
+//     analytics_end = question_title;
+// }
+
+// }

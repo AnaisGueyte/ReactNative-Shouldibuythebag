@@ -1,80 +1,96 @@
 import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image} from 'react-native';
+import { Container, Content, Button } from 'native-base';
+import { StackNavigator, NavigationActions } from 'react-navigation';
 
-class EndMessage extends React.Component {
+class EndScreen extends React.Component {
 
-// Functions to display end messages
+static navigationOptions = ({ navigation }) => ({
+    title: `Should I buy the ${navigation.state.params.item}`,
+  });
 
-function reallyWhy(question_title) {
-    $('#question_title').empty();
-    console.log("why yu no remove buttons before");
-    $('#buttons_zone').remove();
-    console.log("why yu no remove buttons after");
-    $('#question_title').append(a1_likeit);
-    $('#content_zone').append(dontlikeit_gif);
-    $('#content_zone').append(return_button);
+  
+  render(){ 
+  
+    const { navigate } = this.props.navigation;
+    var params = this.props.navigation.state.params.item;
+    var imgBanner;
 
-    analyticsquizz_complete = true;
-    analytics_end = question_title;
+    if ( params == 'bag'){
+      imgBanner = require('Shouldibuythebag/img/bag.jpg');
+    } else if( params == 'shoes'){
+      imgBanner = require('Shouldibuythebag/img/shoes.png');
+    } else {
+      imgBanner = require('Shouldibuythebag/img/cintres.jpg');
+    }
+
+    var reallywhy = "Really? \n Why do you even take the test then?!";
+    var reallywhy_gif = {uri: 'https://media.giphy.com/media/3ornkbl5jev6mIz4oU/giphy.gif'};
+
+    return (
+      <View style={styles.quizz}>
+
+         <View style={styles.bannerView}>
+          <Image style={styles.banner} source={imgBanner}></Image>
+        </View>
+
+        <View style={styles.itemsBackground}>
+            <Text style={styles.question}>  { reallywhy }  </Text>
+            <Image style={{width: 300, height: 200}} source={reallywhy_gif}></Image> 
+             
+        </View>
+            <Container>
+            <Button bordered primary style={{marginTop: 20, width: 85, height: 50}} onPress={() => navigate('Home')}>
+                <Text style={{justifyContent: 'center'}}> Home</Text>
+            </Button>
+            </Container> 
+
+    </View>
+      );  
+  }   
 }
 
-function thankHonesty(question_title) {
-    $('#question_title').empty();
-    $('#buttons_zone').remove();
-    $('#question_title').append(a3_needit);
-    $('#content_zone').append(dontneedit_gif);
-    $('#content_zone').append(return_button);
 
-    analyticsquizz_complete = true;
-    analytics_end = question_title;
-    console.log("in thank honesty function");
-}
+const styles = StyleSheet.create({
+  quizz:{
+    width: 375,
+    height: 700,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  bannerView:{
+    width: 375,
+    height: 100,
+  },
+  banner:{
+    width: 375,
+    height: 100,
+  },
+itemsBackground: {
+    width: 375,
+    height: 350,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  question:{
+    justifyContent: 'center',
+    textAlign: 'center',
+    fontSize: 25,
+    fontFamily: 'Cochin',
+    marginBottom: 20,
+  },
+  button: {
+    width: 375,
+    height: 50,
+    borderColor: '#fff',
+    borderRadius: 10,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: 'center',
+  },
+});
 
-function dontBuyIt(question_title) {
-    $('#question_title').empty();
-    $('#buttons_zone').remove();
-    $('#question_title').append(dontbuyit);
-    $('#content_zone').append(dontbuyit_gif);
-    $('#content_zone').append(return_button);
 
-    analyticsquizz_complete = true;
-    analytics_end = question_title;
-    console.log("in dont buy it function");
-}
-
-function treatYoSelf(question_title) {
-    $('#question_title').empty();
-    $('#buttons_zone').remove();
-    $('#question_title').append(a14_buyit);
-    $('#content_zone').append(treatyoself_gif);
-    $('#content_zone').append(return_button);
-
-    analyticsquizz_complete = true;
-    analytics_end = question_title;
-}
-
-function jeezDontBuyIt(question_title) {
-    $('#question_title').empty();
-    $('#buttons_zone').remove();
-    $('#question_title').append(jeezdontbuyit);
-    $('#content_zone').append(jeezdontbuyit_gif);
-    $('#content_zone').append(return_button);
-
-    analyticsquizz_complete = true;
-    analytics_end = question_title;
-
-}
-
-function lifeIsTooShort(question_title) {
-    $('#question_title').empty();
-    $('#buttons_zone').remove();
-    $('#question_title').append(a14bis_buyit);
-    $('#content_zone').append(lifetooshort_gif);
-    $('#content_zone').append(return_button);
-
-    analyticsquizz_complete = true;
-    analytics_end = question_title;
-}
-
-}
-
-export default EndMessage;
+export default EndScreen;
