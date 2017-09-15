@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, newView} from 'react-native';
 import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
@@ -10,16 +10,21 @@ class QuizzScreen extends React.Component {
     title: `Should I buy the ${navigation.state.params.item}`,
   });
 
- 
+  state = {
+    quest: 'Do you really like it?'
+  }
+
+  changeQuestion(){
+    if ( this.quest == 'Do you really like it?'){
+      updateState = () => this.setState({ quest: 'Do you really want it?' });
+    }
+  }
   
   render(){ 
-    const { navigate } = this.props.navigation;
 
     var question = require('./questions');
-    var params = this.props.navigation.state.params.item;
-    
-
-
+    const { navigate } = this.props.navigation;
+    var params = this.props.navigation.state.params.item; 
     var imgBanner;
 
     if ( params == 'bag'){
@@ -38,12 +43,12 @@ class QuizzScreen extends React.Component {
         </View>
 
         <View style={styles.itemsBackground}>
-          <Text style={styles.question}> { question.q1_likeit }  </Text>
+          <Text style={styles.question}> {this.state.quest} </Text>
                 
           <View style={styles.button}>
 
             <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={() => navigate('End',  {item: this.props.navigation.state.params.item} )}><Text style={{color: 'red'}}>No</Text></Button>
-            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}}><Text style={{color: 'green'}}>Yes</Text></Button>
+            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress = {this.changeQuestion} ><Text style={{color: 'green'}}>Yes</Text></Button>
 
           </View>
         </View>
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
     width: 375,
     height: 100,
   },
-itemsBackground: {
+  itemsBackground: {
     width: 375,
     height: 250, 
     backgroundColor: 'white',
