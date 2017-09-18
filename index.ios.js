@@ -20,6 +20,13 @@ import OnlineShoppingReturnEasyQuestionScreen from './js/questions/onlineshoppin
 import OwnQuestionScreen from './js/questions/ownquestion';
 import TooManyQuestionScreen from './js/questions/toomanyquestion';
 import FitQuestionScreen from './js/questions/fitquestion';
+import FitMeQuestionScreen from './js/questions/fitmequestion';
+import InfluencerQuestionScreen from './js/questions/influencerquestion';
+import InfluencerWearQuestionScreen from './js/questions/influencerwearquestion';
+import OneTimeUseQuestionScreen from './js/questions/onetimeusequestion';
+import ReallyOneTimeUseQuestionScreen from  './js/questions/reallyonetimeusequestion';
+import SaleQuestionScreen from './js/questions/salequestion';
+import WaitSaleQuestionScreen from './js/questions/waitsalequestion';
 import EndScreen from './js/endmessage';
 
 
@@ -27,7 +34,7 @@ const shouldibuythebag = StackNavigator({
   Home: { screen: HomeScreen },
   Items: { screen: ItemsScreen },
   Quizz: { screen: QuizzScreen },
-  End: { screen: EndScreen }, 
+ 
   WantItQuestion: { screen: WantItQuestionScreen },
   QualityQuestion: { screen: QualityQuestionScreen },
   Needit: { screen: NeedIQuestionScreen }, 
@@ -38,6 +45,15 @@ const shouldibuythebag = StackNavigator({
   OwnQuestion: { screen: OwnQuestionScreen },
   TooManyQuestion: { screen: TooManyQuestionScreen },
   FitQuestion: { screen: FitQuestionScreen },
+  FitMeQuestion: { screen: FitMeQuestionScreen },
+  InfluencerQuestion: { screen: InfluencerQuestionScreen },
+  InfluencerWearQuestion: { screen: InfluencerWearQuestionScreen },
+  OneTimeUseQuestion: { screen: OneTimeUseQuestionScreen },
+  ReallyOneTimeUseQuestion: { screen: ReallyOneTimeUseQuestionScreen },
+  SaleQuestion: { screen: SaleQuestionScreen },
+  WaitSaleQuestion: { screen: WaitSaleQuestionScreen },
+
+  End: { screen: EndScreen },
 });
 
 AppRegistry.registerComponent('Shouldibuythebag', () => shouldibuythebag);

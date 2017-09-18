@@ -4,14 +4,14 @@ import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
 
-class FitQuestionScreen extends React.Component {
+class InfluencerQuestionScreen extends React.Component {
   
   static navigationOptions = ({ navigation }) => ({
     title: `Should I buy the ${navigation.state.params.item}?`,
   });
 
   state = {
-    quest: "Will it fit with your clothes and all the other stuff in your wardrobe?"
+    quest: "Do you want this " + this.props.navigation.state.params.item  + " because you saw a blogger/celebrity wear it on Instagram?"
   }
   
   render(){ 
@@ -38,8 +38,8 @@ class FitQuestionScreen extends React.Component {
 
           <View style={styles.button}>
 
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('End',  { item: this.props.navigation.state.params.item, message: 'dontbuyit' }) }><Text style={{color: 'red'}}>No</Text></Button>
-            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('FitMeQuestion', { item: this.props.navigation.state.params.item}) } ><Text style={{color: 'green'}}>Yes</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('OneTimeUseQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>No</Text></Button>
+            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('InfluencerWearQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
 
           </View>
         </View>
@@ -103,5 +103,5 @@ const styles = StyleSheet.create({
 });
 
 
-export default FitQuestionScreen;
+export default InfluencerQuestionScreen;
 

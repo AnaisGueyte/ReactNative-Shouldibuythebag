@@ -1,25 +1,4 @@
 
-	var q_fitwardrobe = "Will it fit with your clothes and all the other stuff in your wardrobe?";
-	// don't buy it
-
-	var q_fitme = "Does it even fit?!"; // Is different according to the item (bag, shoes, dress)
-	// Jeez! don't buy it
-
-	var q_influencertitle = "Do you want this " + " because you saw a blogger/celebrity wear it on Instagram?";
-	//if no -> q8
-	//if yes -> q_influencerbis
-	var q_influencertitlebis = "Would you still buy it if that Influencer wasn't wearing it?";
-	// if no -> Don't buy it (thank you for your honesty)
-	// if yes -> q_onetimeuse
-
-	var q_onetimeuse = "Will you wear it more than one time? <br><small>(We all know the party dress situation)</small>";
-	//no -> q_sale
-	//yes -> q_manyuse 
-
-	var q_manyuse = "Oh, really? So will you still wear it next month, next season, next year?"
-	    //No -> don't buy it
-	    // Yes-> q_sale
-
 	var q_sale = "Is it on sale?";
 	// if yes go to q10
 	// no go to q8bis
