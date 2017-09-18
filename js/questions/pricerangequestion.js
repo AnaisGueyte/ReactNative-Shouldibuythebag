@@ -4,14 +4,14 @@ import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
 
-class WaitSaleQuestionScreen extends React.Component {
+class PriceRangeQuestionScreen extends React.Component {
   
   static navigationOptions = ({ navigation }) => ({
     title: `Should I buy the ${navigation.state.params.item}?`,
   });
 
   state = {
-    quest:   "Can't you wait for sale?"
+    quest:  "Is it expensive?"
   }
   
   render(){ 
@@ -38,8 +38,10 @@ class WaitSaleQuestionScreen extends React.Component {
 
           <View style={styles.button}>
 
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('SecondHandQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>No</Text></Button>
-            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('End', { item: this.props.navigation.state.params.item, message: 'dontbuyit'} ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('RewardQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>under 20</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'red'}}>50 - 100</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>+ 200</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('End', { item: this.props.navigation.state.params.item, message: 'jeez'} ) } ><Text style={{color: 'red'}}>Above 500</Text></Button>
 
           </View>
         </View>
@@ -103,5 +105,5 @@ const styles = StyleSheet.create({
 });
 
 
-export default WaitSaleQuestionScreen;
+export default PriceRangeQuestionScreen;
 

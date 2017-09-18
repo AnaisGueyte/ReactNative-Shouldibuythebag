@@ -39,7 +39,7 @@ class SaleQuestionScreen extends React.Component {
           <View style={styles.button}>
 
             <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('WaitSaleQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>No</Text></Button>
-            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
+            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('SecondHandQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
 
           </View>
         </View>

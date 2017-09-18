@@ -27,6 +27,13 @@ import OneTimeUseQuestionScreen from './js/questions/onetimeusequestion';
 import ReallyOneTimeUseQuestionScreen from  './js/questions/reallyonetimeusequestion';
 import SaleQuestionScreen from './js/questions/salequestion';
 import WaitSaleQuestionScreen from './js/questions/waitsalequestion';
+import SecondHandQuestionScreen from './js/questions/secondhandquestion';
+import SecondHandOnlineQuestionScreen from './js/questions/secondhandonlinequestion';
+import PriceQuestionScreen from './js/questions/pricequestion';
+import PriceRangeQuestionScreen from './js/questions/pricerangequestion';
+import AffordQuestionScreen from './js/questions/affordquestion';
+import ReallyAffordQuestionScreen from './js/questions/reallyaffordquestion';
+import RewardQuestionScreen from './js/questions/rewardquestion';
 import EndScreen from './js/endmessage';
 
 
@@ -52,6 +59,13 @@ const shouldibuythebag = StackNavigator({
   ReallyOneTimeUseQuestion: { screen: ReallyOneTimeUseQuestionScreen },
   SaleQuestion: { screen: SaleQuestionScreen },
   WaitSaleQuestion: { screen: WaitSaleQuestionScreen },
+  SecondHandQuestion: { screen: SecondHandQuestionScreen },
+  SecondHandOnlineQuestion: { screen: SecondHandOnlineQuestionScreen },
+  PriceQuestion: { screen: PriceQuestionScreen },
+  PriceRangeQuestion: { screen: PriceRangeQuestionScreen },
+  AffordQuestion: { screen: AffordQuestionScreen },
+  ReallyAffordQuestion: { screen: ReallyAffordQuestionScreen },
+  RewardQuestion: { screen: RewardQuestionScreen },
 
   End: { screen: EndScreen },
 });
