@@ -4,14 +4,14 @@ import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
 
-class QuizzScreen extends React.Component {
+class TooManyQuestionScreen extends React.Component {
   
   static navigationOptions = ({ navigation }) => ({
     title: `Should I buy the ${navigation.state.params.item}?`,
   });
 
   state = {
-    quest: 'Do you really like it?'
+    quest:  "Do you feel like you already have too many " + this.props.navigation.state.params.item + "?"
   }
   
   render(){ 
@@ -31,21 +31,23 @@ class QuizzScreen extends React.Component {
     return (
      <View style={styles.quizz}>
 
-        <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
+       <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
 
         <View style={styles.itemsBackground}>
            <Text style={styles.question}> {this.state.quest} </Text>
 
           <View style={styles.button}>
 
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('End',  {item: this.props.navigation.state.params.item, message: 'really'} ) }><Text style={{color: 'red'}}>No</Text></Button>
-            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('WantItQuestion',  {item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('',  {item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>No</Text></Button>
+            <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('End',  { item: this.props.navigation.state.params.item, message: 'dontbuyit' } ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
 
           </View>
         </View>
 
       </View>
         );
+      
+      
     }   
 }
 
@@ -101,5 +103,5 @@ const styles = StyleSheet.create({
 });
 
 
-export default QuizzScreen;
+export default TooManyQuestionScreen;
 
