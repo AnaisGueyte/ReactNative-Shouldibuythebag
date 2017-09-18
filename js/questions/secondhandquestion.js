@@ -4,7 +4,7 @@ import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
 
-class SecondHandOQuestionScreen extends React.Component {
+class SecondHandQuestionScreen extends React.Component {
   
   static navigationOptions = ({ navigation }) => ({
     title: `Should I buy the ${navigation.state.params.item}?`,
