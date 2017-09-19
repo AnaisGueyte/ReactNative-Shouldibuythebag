@@ -36,12 +36,12 @@ class QualityQuestionScreen extends React.Component {
         <View style={styles.itemsBackground}>
           <Text style={styles.question}> {this.state.quest} </Text>
 
-          <View style={styles.button}>
+          <Container style={styles.button}>
 
             <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('End',  { item: this.props.navigation.state.params.item, message: 'honesty' } ) }><Text style={{color: 'red'}}>No</Text></Button>
             <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('Needit',  { item: this.props.navigation.state.params.item } ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
 
-          </View>
+          </Container>
         </View>
 
       </View>
@@ -56,11 +56,12 @@ const styles = StyleSheet.create({
   quizz:{
     width: 375,
     height: 700,
-    backgroundColor: 'white',
+    backgroundColor: 'blue',
   },
   bannerView:{
     width: 375,
     height: 100,
+    backgroundColor: 'red',
   },
   banner:{
     width: 375,
@@ -72,12 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  items: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
-    borderRadius: 10,
+    backgroundColor: 'green',
   },
   question:{
     padding: 60,
@@ -85,6 +81,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 25,
     fontFamily: 'Cochin',
+    backgroundColor: 'black',
   },
   button: {
     width: 375,
@@ -94,11 +91,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: 'center',
-  },
-  submit:{
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#fff'
+    backgroundColor: 'yellow',
   },
 });
 

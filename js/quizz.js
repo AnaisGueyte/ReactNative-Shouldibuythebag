@@ -53,8 +53,8 @@ class QuizzScreen extends React.Component {
 const styles = StyleSheet.create({
   quizz:{
     width: 375,
-    height: 700,
-    backgroundColor: 'white',
+    height: undefined,
+    backgroundColor: 'rgba(255,255,255,0.5)',
   },
   bannerView:{
     width: 375,
