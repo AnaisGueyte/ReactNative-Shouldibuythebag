@@ -129,6 +129,7 @@ itemsBackground: {
     fontSize: 25,
     fontFamily: 'Cochin',
     marginBottom: 20,
+    color: 'black',
   },
   button: {
     width: 375,

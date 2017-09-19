@@ -11,7 +11,8 @@ class QualityQuestionScreen extends React.Component {
   });
 
   state = {
-    quest: 'Is it good quality?\n(I mean, will it last after two washes, 2 miles, two years?)'
+    quest: 'Is it good quality?',
+    under_question: '(I mean, will it last after two washes, 2 miles, two years?)'
   }
   
   render(){ 
@@ -29,25 +30,24 @@ class QualityQuestionScreen extends React.Component {
     }
 
     return (
-     <View style={styles.quizz}>
+     <Container style={styles.quizz}>
 
         <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
 
-        <View style={styles.itemsBackground}>
+        <Container style={styles.question_container}>
           <Text style={styles.question}> {this.state.quest} </Text>
-
+          <Text style={styles.under_question}> {this.state.under_question} </Text>
+        </Container>
           <Container style={styles.button}>
 
             <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('End',  { item: this.props.navigation.state.params.item, message: 'honesty' } ) }><Text style={{color: 'red'}}>No</Text></Button>
             <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('Needit',  { item: this.props.navigation.state.params.item } ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
 
           </Container>
-        </View>
+       
 
-      </View>
+      </Container>
         );
-      
-      
     }   
 }
 
@@ -56,12 +56,11 @@ const styles = StyleSheet.create({
   quizz:{
     width: 375,
     height: 700,
-    backgroundColor: 'blue',
+    backgroundColor: 'white',
   },
   bannerView:{
     width: 375,
     height: 100,
-    backgroundColor: 'red',
   },
   banner:{
     width: 375,
@@ -73,25 +72,38 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+  },
+  question_container:{
+    justifyContent: 'center',
+    backgroundColor: 'white',
   },
   question:{
-    padding: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
+    textAlign: 'center',
     fontSize: 25,
     fontFamily: 'Cochin',
-    backgroundColor: 'black',
+    color: 'black',
+    fontSize: 25,
+    fontFamily: 'Cochin',
+    color: 'black',
+  },
+  under_question:{
+    textAlign: 'center',
+    fontSize: 15,
+    fontFamily: 'Cochin',
+    color: 'black',
+    marginLeft: 15,
+    marginRight: 15,
   },
   button: {
     width: 375,
-    height: 50,
+    height: 100,
     borderColor: '#fff',
     borderRadius: 10,
     flex: 1,
     flexDirection: "row",
     justifyContent: 'center',
-    backgroundColor: 'yellow',
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 });
 

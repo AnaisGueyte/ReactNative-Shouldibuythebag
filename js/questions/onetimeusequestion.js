@@ -11,7 +11,8 @@ class OneTimeUseQuestionScreen extends React.Component {
   });
 
   state = {
-    quest:  "Will you wear it more than one time? \n (We all know the party dress situation)"
+    quest:  'Will you wear it more than one time?',
+    under_question: '(We all know the party dress situation)'
   }
   
   render(){ 
@@ -29,25 +30,22 @@ class OneTimeUseQuestionScreen extends React.Component {
     }
 
     return (
-     <View style={styles.quizz}>
+     <Container style={styles.quizz}>
 
-       <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
+        <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
 
-        <View style={styles.itemsBackground}>
-           <Text style={styles.question}> {this.state.quest} </Text>
-
-          <View style={styles.button}>
+        <Container style={styles.question_container}>
+          <Text style={styles.question}> {this.state.quest} </Text>
+          <Text style={styles.under_question}> {this.state.under_question} </Text>
+        </Container>
+          <Container style={styles.button}>
 
             <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('SaleQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>No</Text></Button>
             <Button bordered success style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('ReallyOneTimeUseQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'green'}}>Yes</Text></Button>
 
-          </View>
-        </View>
-
-      </View>
-        );
-      
-      
+          </Container>
+      </Container>
+        ); 
     }   
 }
 
@@ -73,32 +71,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  items: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
-    borderRadius: 10,
+  question_container:{
+    justifyContent: 'center',
+    backgroundColor: 'white',
   },
   question:{
-    padding: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
+    textAlign: 'center',
     fontSize: 25,
     fontFamily: 'Cochin',
+    color: 'black',
+    fontSize: 25,
+    fontFamily: 'Cochin',
+    color: 'black',
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  under_question:{
+    textAlign: 'center',
+    fontSize: 15,
+    fontFamily: 'Cochin',
+    color: 'black',
   },
   button: {
     width: 375,
-    height: 50,
+    height: 100,
     borderColor: '#fff',
     borderRadius: 10,
     flex: 1,
     flexDirection: "row",
     justifyContent: 'center',
-  },
-  submit:{
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#fff'
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 });
 

@@ -38,10 +38,10 @@ class PriceRangeQuestionScreen extends React.Component {
 
           <View style={styles.button}>
 
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('RewardQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>under 20</Text></Button>
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'red'}}>50 - 100</Text></Button>
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginRight: 20}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>+ 200</Text></Button>
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70, marginLeft: 20}} onPress={ () => navigate('End', { item: this.props.navigation.state.params.item, message: 'jeez'} ) } ><Text style={{color: 'red'}}>Above 500</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('RewardQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>under 20</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'red'}}>50 - 100</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>+ 200</Text></Button>
+            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('End', { item: this.props.navigation.state.params.item, message: 'jeez'} ) } ><Text style={{color: 'red'}}>Above 500</Text></Button>
 
           </View>
         </View>
@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 25,
     fontFamily: 'Cochin',
+    marginLeft: 15,
+    marginRight: 15,
   },
   button: {
     width: 375,
