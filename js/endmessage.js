@@ -17,16 +17,16 @@ class EndScreen extends React.Component {
 
         var item = this.props.navigation.state.params.item;
         var params = this.props.navigation.state.params.message;
-        var imgBanner = require('Shouldibuythebag/img/bag.jpg');
+        var imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
 
 
-        if ( item == 'bag'){
-          imgBanner = require('Shouldibuythebag/img/bag.jpg');
-        } else if( item == 'shoes'){
-          imgBanner = require('Shouldibuythebag/img/shoes.png');
-        } else {
-          imgBanner = require('Shouldibuythebag/img/cintres.jpg');
-        }
+        if ( params == 'bag'){
+      imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
+    } else if( params == 'shoes'){
+      imgBanner = {uri: 'Shouldibuythebag/img/shoes.png'};
+    } else {
+      imgBanner = {uri: 'Shouldibuythebag/img/cintres.jpg'};
+    }
 
 
         // differents answer possible

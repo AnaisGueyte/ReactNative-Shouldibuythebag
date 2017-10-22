@@ -11,7 +11,7 @@ class PriceRangeQuestionScreen extends React.Component {
   });
 
   state = {
-    quest:  "Is it expensive?"
+    quest:  "How expensive?"
   }
   
   render(){ 
@@ -20,33 +20,33 @@ class PriceRangeQuestionScreen extends React.Component {
     var params = this.props.navigation.state.params.item; 
     var imgBanner;
 
-    if ( params == 'bag'){
-      imgBanner = require('Shouldibuythebag/img/bag.jpg');
+      if ( params == 'bag'){
+      imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
     } else if( params == 'shoes'){
-      imgBanner = require('Shouldibuythebag/img/shoes.png');
+      imgBanner = {uri: 'Shouldibuythebag/img/shoes.png'};
     } else {
-      imgBanner = require('Shouldibuythebag/img/cintres.jpg');
+      imgBanner = {uri: 'Shouldibuythebag/img/cintres.jpg'};
     }
 
+
     return (
-     <View style={styles.quizz}>
+     <Container style={styles.quizz}>
 
-       <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
+        <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
 
-        <View style={styles.itemsBackground}>
-           <Text style={styles.question}> {this.state.quest} </Text>
+        <Container style={styles.question_container}>
+          <Text style={styles.question}> {this.state.quest} </Text>
+        </Container>
+        <Container style={styles.button}>
 
-          <View style={styles.button}>
+            <Button bordered danger style={{marginTop: 5, justifyContent: 'center', width: 200, height: 40}} onPress={ () => navigate('RewardQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>Under 20$</Text></Button>
+            <Button bordered danger style={{marginTop: 5, justifyContent: 'center', width: 200, height: 40}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'red'}}>Between 50 & 100$</Text></Button>
+            <Button bordered danger style={{marginTop: 5, justifyContent: 'center', width: 200, height: 40}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>Above 100$</Text></Button>
+            <Button bordered danger style={{marginTop: 5, justifyContent: 'center', width: 200, height: 40}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>Above 200$</Text></Button>
+            <Button bordered danger style={{marginTop: 5, justifyContent: 'center', width: 200, height: 40}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'red'}}>Above 500$</Text></Button>
 
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('RewardQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>under 20</Text></Button>
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) } ><Text style={{color: 'red'}}>50 - 100</Text></Button>
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('AffordQuestion', { item: this.props.navigation.state.params.item} ) }><Text style={{color: 'red'}}>+ 200</Text></Button>
-            <Button bordered danger style={{justifyContent: 'center', width: 85, height: 70}} onPress={ () => navigate('End', { item: this.props.navigation.state.params.item, message: 'jeez'} ) } ><Text style={{color: 'red'}}>Above 500</Text></Button>
-
-          </View>
-        </View>
-
-      </View>
+        </Container>
+      </Container>
         );
       
       
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     width: 375,
     height: 700,
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   bannerView:{
     width: 375,
@@ -68,43 +69,24 @@ const styles = StyleSheet.create({
     width: 375,
     height: 100,
   },
-  itemsBackground: {
-    width: 375,
-    height: 250, 
-    backgroundColor: 'white',
+  question_container:{
     justifyContent: 'center',
-    alignItems: 'center',
-  },
-  items: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
-    borderRadius: 10,
+    backgroundColor: 'white',
   },
   question:{
-    padding: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
+    textAlign: 'center',
     fontSize: 25,
     fontFamily: 'Cochin',
+    color: 'black',
     marginLeft: 15,
     marginRight: 15,
   },
-  button: {
-    width: 375,
-    height: 50,
-    borderColor: '#fff',
-    borderRadius: 10,
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: 'center',
-  },
-  submit:{
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#fff'
+ button: {
+    marginBottom: 120,
   },
 });
+
+
 
 
 export default PriceRangeQuestionScreen;

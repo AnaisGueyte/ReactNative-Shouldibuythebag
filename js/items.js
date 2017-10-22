@@ -21,9 +21,9 @@ class ItemsScreen extends React.Component {
       <View style={styles.itemsBackground}>
         <Text style={{fontFamily: 'Cochin', fontSize: 20}} >{'\n'}Pick an item to start the quizz{'\n'}</Text>
   
-        <Button onPress={ () => navigate('Quizz', { item: 'bag' }) }><Image style={styles.items} source={require('Shouldibuythebag/img/sac.jpg')}></Image></Button>
-        <Button onPress={ () => navigate('Quizz', { item: 'shoes' }) }><Image style={styles.items} source={require('Shouldibuythebag/img/shoesillu.jpg')}></Image></Button>
-        <Button onPress={ () => navigate('Quizz', { item: 'dress' }) }><Image style={styles.items} source={require('Shouldibuythebag/img/dressillu.jpg')}></Image></Button>
+        <Button onPress={ () => navigate('Quizz', { item: 'bag' }) }><Image style={styles.items} source={{uri:'Shouldibuythebag/img/sac.jpg'}}></Image></Button>
+        <Button onPress={ () => navigate('Quizz', { item: 'shoes' }) }><Image style={styles.items} source={{uri:'Shouldibuythebag/img/shoesillu.jpg'}}></Image></Button>
+        <Button onPress={ () => navigate('Quizz', { item: 'dress' }) }><Image style={styles.items} source={{uri:'Shouldibuythebag/img/dressillu.jpg'}}></Image></Button>
       
       </View>
     );

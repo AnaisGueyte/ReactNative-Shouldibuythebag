@@ -15,7 +15,7 @@ class HomeScreen extends React.Component {
     const { navigate } = this.props.navigation;
 
     return (
-      <Image style={styles.backgroundImage} source={require('Shouldibuythebag/img/bag.jpg')}>
+      <Image style={styles.backgroundImage} source={{uri:'Shouldibuythebag/img/bag.jpg'}}>
        
         <Container style={styles.welcome}>
 

@@ -20,13 +20,14 @@ class FitQuestionScreen extends React.Component {
     var params = this.props.navigation.state.params.item; 
     var imgBanner;
 
-    if ( params == 'bag'){
-      imgBanner = require('Shouldibuythebag/img/bag.jpg');
+      if ( params == 'bag'){
+      imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
     } else if( params == 'shoes'){
-      imgBanner = require('Shouldibuythebag/img/shoes.png');
+      imgBanner = {uri: 'Shouldibuythebag/img/shoes.png'};
     } else {
-      imgBanner = require('Shouldibuythebag/img/cintres.jpg');
+      imgBanner = {uri: 'Shouldibuythebag/img/cintres.jpg'};
     }
+
 
     return (
      <Container style={styles.quizz}>
@@ -45,7 +46,6 @@ class FitQuestionScreen extends React.Component {
         );
     }   
 }
-
 
 const styles = StyleSheet.create({
   quizz:{
@@ -77,9 +77,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'Cochin',
     color: 'black',
-    fontSize: 25,
-    fontFamily: 'Cochin',
-    color: 'black',
     marginLeft: 15,
     marginRight: 15,
   },
@@ -95,6 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 });
+
 
 
 export default FitQuestionScreen;

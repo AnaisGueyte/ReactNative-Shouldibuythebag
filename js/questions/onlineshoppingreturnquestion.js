@@ -20,13 +20,14 @@ class OnlineShoppingReturnQuestionScreen extends React.Component {
     var params = this.props.navigation.state.params.item; 
     var imgBanner;
 
-    if ( params == 'bag'){
-      imgBanner = require('Shouldibuythebag/img/bag.jpg');
+      if ( params == 'bag'){
+      imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
     } else if( params == 'shoes'){
-      imgBanner = require('Shouldibuythebag/img/shoes.png');
+      imgBanner = {uri: 'Shouldibuythebag/img/shoes.png'};
     } else {
-      imgBanner = require('Shouldibuythebag/img/cintres.jpg');
+      imgBanner = {uri: 'Shouldibuythebag/img/cintres.jpg'};
     }
+
 
     return (
      <Container style={styles.quizz}>
