@@ -13,8 +13,6 @@
          }
      }
 
-     static item = 
-
     static navigationOptions = ({ navigation }) => ({
       title: `Should I buy the ${navigation.state.params.item}?`,
     });
@@ -32,40 +30,26 @@
       return imgBanner
     }
 
- var really = this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'really'} }));
-      var thankHonesty = this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'honesty'} }));
-      var dontbuyit = this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
-      var jeez = this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'jeez'} }));
-      var treatyoself = this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'treatyoself'} }));
-      var lifetooshort = this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'lifetooshort'} }));
-
-
     // Reacts to every no answer
     answerNo(){
-      
+
       var quest = this.state.quest;
 
-     
-
       if (quest == 'Do you really like it?'){
-        really;
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'really'} }));
       }
-
       if (quest == 'Do you really want it?'){
-        really;
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'really'} }));
       }
-
       if (quest == 'Is it good quality?'){
-        honesty;
+       this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'honest'} }));
       }
-
       if (quest == 'Do you need it?'){
-        honesty;
+       this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'honesty'} }));
       }
       if (quest == 'Is it an impulse shopping situation?'){
         this.setState({quest:  "Is it an online shopping situation?"})
-        this.setState({under_question: ''})
-        
+        this.setState({under_question: ''})  
       }
       if (quest == 'Is it an online shopping situation?'){
         this.setState({quest:  "Do you already own something similar?"})
@@ -80,22 +64,21 @@
         this.setState({under_question: ''})
       }
        if (quest == "Do you already own something similar?"){
-        this.setState({quest:  "Have you check the return policy?"})
+        this.setState({quest: "Do you feel like you already have too many " + this.props.navigation.state.params.item + "?"})
         this.setState({under_question: ''})
       }
-      if (quest == "Do you feel like you already have too many" + ${navigation.state.params.item} + "?"){
-        // no
-      }
-       if (quest == "Can you return the item easily if it doesn't fit?"){
+      if (quest == "Do you feel like you already have too many " + this.props.navigation.state.params.item + "?"){
         this.setState({quest: "Does it even fit?!"})
         this.setState({under_question: ''})
+      }
+       if (quest == "Can you return the item easily if it doesn't fit?"){
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       } 
       if (quest == "Does it even fit?!"){
-        this.setState({quest: "Do you want this " + this.props.navigation.state.params.item  + " because you saw a blogger/celebrity wear it on Instagram?"})
-        this.setState({under_question: ''})
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       } 
       if (quest == "Do you want this " + this.props.navigation.state.params.item  + " because you saw a blogger/celebrity wear it on Instagram?"){
-        this.setState({quest: "Would you still buy it if that Influencer wasn't wearing it?"})
+        this.setState({quest: "Will you wear it more than one time?"})
         this.setState({under_question: ''})
       } 
        if (quest == "Would you still buy it if that Influencer wasn't wearing it?"){
@@ -107,14 +90,13 @@
         this.setState({under_question: '(We all know the party dress situation)'})
       } 
        if (quest == "Will you wear it more than one time?"){
-        this.setState({quest: "Is it on sale"})
-        this.setState({under_question: ''})
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       } 
       if (quest == "Is it on sale"){
-        this.setState({quest: "Is it second hand?"})
+        this.setState({quest: "Can't you wait for sale?"})
         this.setState({under_question: ''})
       }
-      if (quest == "Is it on sale"){
+      if (quest == "Can't you wait for sale?"){
         this.setState({quest: "Is it second hand?"})
         this.setState({under_question: ''})
       }
@@ -123,21 +105,19 @@
         this.setState({under_question: ''})
       }
       if (quest == "Is it expensive?"){
-        this.setState({quest: "How expensive?"})
+        this.setState({quest: "Can you afford it?"})
         this.setState({under_question: ''})
       }
       if (quest == "Can you afford it?"){
-        this.setState({quest: "Really?? You can you afford it?!"})
-        this.setState({under_question: ''})
+       this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'jeez'} }));
       }
       if (quest == "Really?? You can you afford it?!"){
-        this.setState({quest: "Do you feel like you deserve to reward or gift yourself lately?"})
-        this.setState({under_question: ''})
+       this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'jeez'} }));
       }
       if (quest == "Do you feel like you deserve to reward or gift yourself lately?"){
-        // End -> treat yo self
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'lifetooshort'} }));
       }
-    }
+  }
 
     answerYes(){
 
@@ -146,23 +126,20 @@
       if (quest == 'Do you really like it?'){
         this.setState({quest: 'Do you really want it?'})
       }
-
       if (quest == 'Do you really want it?'){
         this.setState({quest: 'Is it good quality?'})
         this.setState({under_question: '(I mean, will it last after two washes, 2 miles, two years?)'})
       }
-
       if (quest == 'Is it good quality?'){
         this.setState({quest: 'Do you need it?'})
         this.setState({under_question: ''})
       }
-
       if (quest == 'Do you need it?'){
         this.setState({quest:  "Is it an impulse shopping situation?"})
         this.setState({under_question: '(Or do you just need a hug?)'})
       }
       if (quest == 'Is it an impulse shopping situation?'){
-        dontbuyit;
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       }
       if (quest == 'Is it an online shopping situation?'){
         this.setState({quest:  "Have you check the return policy?"})
@@ -177,12 +154,12 @@
         this.setState({under_question: ''})
       }
        if (quest == "Do you already own something similar?"){
-        // No
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       }
-      if (quest == "Do you feel like you already have too many" + ${navigation.state.params.item} + "?"){
-        // no
+      if (quest == "Do you feel like you already have too many" + this.props.navigation.state.params.item + "?"){
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       }
-       if (quest == "Can you return the item easily if it doesn't fit?"){
+      if (quest == "Can you return the item easily if it doesn't fit?"){
         this.setState({quest: "Does it even fit?!"})
         this.setState({under_question: ''})
       } 
@@ -210,9 +187,8 @@
         this.setState({quest: "Is it second hand?"})
         this.setState({under_question: ''})
       }
-      if (quest == "Is it on sale"){
-        this.setState({quest: "Is it second hand?"})
-        this.setState({under_question: ''})
+      if (quest == "Can't you wait for sale?"){
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'dontbuyit'} }));
       }
       if (quest == "Is it second hand?"){
         this.setState({quest: "Is it expensive?"})
@@ -231,18 +207,17 @@
         this.setState({under_question: ''})
       }
       if (quest == "Do you feel like you deserve to reward or gift yourself lately?"){
-        // End -> treat yo self
+        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'treatyoself'} }));
       }
     }
 
 
     render(){ 
     
-    const { navigate } = this.props.navigation;
-
+    //const { navigate } = this.props.navigation;
     imgBanner = this.whatBanner(this.props.navigation.state.params.item);
 
-      return (
+    return (
       <Container style={styles.quizz}>
 
           <View style={styles.bannerView}><Image style={styles.banner} source={imgBanner}></Image></View>
