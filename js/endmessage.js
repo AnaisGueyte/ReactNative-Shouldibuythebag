@@ -59,7 +59,7 @@ class EndScreen extends React.Component {
       if (params ==  'really'){
         message = reallywhy;
         gif = reallywhy_gif;
-    } else if (params =='honesty'){
+    } else if (params == 'honesty'){
         message = thankHonesty;
         gif = thankHonesty_gif;
     } else if (params == 'dontbuyit'){
@@ -89,10 +89,8 @@ class EndScreen extends React.Component {
                     <Image style={{width: 300, height: 200}} source={ gif }></Image>
                 </View>
 
-                <Container>
-                    <Button bordered success style={{marginTop: 20, width: 85, height: 50}} onPress={() => navigate('Items')}>
-                        <Text>Home</Text>
-                    </Button>
+                <Container style={styles.button}>
+                    <Button bordered dark style={{justifyContent: 'center', marginTop: 20, width: 90}} onPress={() => navigate('Items')}><Text>Back home</Text></Button>      
                 </Container> 
 
             </View>

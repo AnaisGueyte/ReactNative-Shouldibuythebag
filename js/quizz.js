@@ -25,7 +25,7 @@
       } else if( params == 'shoes'){
         imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/shoes.png'};
       } else {
-        imgBanner = {uri: '/Users/annagueyte/img/cintres.jpg'};
+        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/cintres.jpg'};
       }
       return imgBanner
     }
@@ -43,7 +43,7 @@
         this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'really'} }));
       }
       if (quest == 'Is it good quality?'){
-       this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'honest'} }));
+       this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'honesty'} }));
       }
       if (quest == 'Do you need it?'){
        this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'honesty'} }));

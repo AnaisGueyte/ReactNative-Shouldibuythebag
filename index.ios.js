@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-
+import React, { Component } from 'react';
 import { AppRegistry, Navigator } from 'react-native';
 import { StackNavigator} from 'react-navigation';
 
@@ -18,5 +18,13 @@ const shouldibuythebag = StackNavigator({
   End: { screen: EndScreen },
   Home: { screen: HomeScreen },
 });
+
+export default class Home extends React.Component {
+	render(){
+		return(
+			<HomeScreen/>
+		);
+	}
+}
 
 AppRegistry.registerComponent('Shouldibuythebag', () => shouldibuythebag);
