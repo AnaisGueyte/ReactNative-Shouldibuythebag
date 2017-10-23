@@ -9,13 +9,12 @@ class HomeScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Should I buy the bag?',
+    header: null,
   };
 
   render() {
-    const { navigate } = this.props.navigation;
-
     return (
-      <Image style={styles.backgroundImage} source={{uri:'Shouldibuythebag/img/bag.jpg'}}>
+      <Image style={styles.backgroundImage} source={{ uri:'/Users/annagueyte/Shouldibuythebag/img/bag.jpg' }}>
        
         <Container style={styles.welcome}>
 
@@ -26,9 +25,9 @@ class HomeScreen extends React.Component {
           </Text>
 
           <Container style={styles.button_container} >
-          <Button bordered danger style={styles.button} styleDisabled={{color: 'red'}} onPress={() => navigate('Items')} >
-              <Text style={styles.button_text}>START THE TEST</Text>
-          </Button>
+          // <Button bordered default style={styles.button} styleDisabled={{color: 'white'}} onPress={ () => navigate('items') } >
+          //     <Text style={styles.button_text}>START THE TEST</Text>
+          // </Button>
           </Container>
        
         </Container>

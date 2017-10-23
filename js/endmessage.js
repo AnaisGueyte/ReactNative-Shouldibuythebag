@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, NavigatorIOS} from 'react-native';
 import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
 class EndScreen extends React.Component {
 
     // Title options for this view
-    static navigationOptions = ({ navigation }) => ({
+     static navigationOptions = ({ navigation }) => ({
         title: `Should I buy the ${navigation.state.params.item}`,
+        headerLeft: null,
     });
+
 
   
     render(){ 
@@ -20,14 +22,14 @@ class EndScreen extends React.Component {
         var imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
 
 
-        if ( params == 'bag'){
-      imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
-    } else if( params == 'shoes'){
-      imgBanner = {uri: 'Shouldibuythebag/img/shoes.png'};
-    } else {
-      imgBanner = {uri: 'Shouldibuythebag/img/cintres.jpg'};
-    }
-
+     if ( item == 'bag'){
+        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/bag.jpg'};
+      } else if( item == 'shoes'){
+        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/shoes.png'};
+      } else {
+        imgBanner = {uri: '/Users/annagueyte/img/cintres.jpg'};
+      }
+      
 
         // differents answer possible
         var reallywhy = "Really?! \n Why do you even take the test then?!";
@@ -88,8 +90,8 @@ class EndScreen extends React.Component {
                 </View>
 
                 <Container>
-                    <Button bordered primary style={{marginTop: 20, width: 85, height: 50}} onPress={() => navigate('Home')}>
-                        <Text style={{justifyContent: 'center'}}> Home</Text>
+                    <Button bordered success style={{marginTop: 20, width: 85, height: 50}} onPress={() => navigate('Items')}>
+                        <Text>Home</Text>
                     </Button>
                 </Container> 
 

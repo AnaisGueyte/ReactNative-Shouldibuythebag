@@ -13,10 +13,10 @@ import QuizzScreen from './js/quizz';
 import EndScreen from './js/endmessage';
 
 const shouldibuythebag = StackNavigator({
-  Home: { screen: HomeScreen },
-  Items: { screen: ItemsScreen },
+  Items: { screen: ItemsScreen },  
   Quizz: { screen: QuizzScreen },
   End: { screen: EndScreen },
+  Home: { screen: HomeScreen },
 });
 
 AppRegistry.registerComponent('Shouldibuythebag', () => shouldibuythebag);

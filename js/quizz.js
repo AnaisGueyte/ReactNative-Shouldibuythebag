@@ -21,11 +21,11 @@
     whatBanner(params){
       var imgBanner;
       if ( params == 'bag'){
-        imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
+        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/bag.jpg'};
       } else if( params == 'shoes'){
-        imgBanner = {uri: 'Shouldibuythebag/img/shoes.png'};
+        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/shoes.png'};
       } else {
-        imgBanner = {uri: 'Shouldibuythebag/img/cintres.jpg'};
+        imgBanner = {uri: '/Users/annagueyte/img/cintres.jpg'};
       }
       return imgBanner
     }
@@ -36,6 +36,7 @@
       var quest = this.state.quest;
 
       if (quest == 'Do you really like it?'){
+        //this.props.navigation.dispatch({routeName:'End', params: {item: this.props.navigation.state.params.item, message: 'really'}});
         this.props.navigation.dispatch(NavigationActions.navigate({ routeName: 'End', params: {item: this.props.navigation.state.params.item, message: 'really'} }));
       }
       if (quest == 'Do you really want it?'){
