@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, NavigatorIOS} from 'react-native';
+import { StyleSheet, Text, View, Image, Platform} from 'react-native';
 import { Container, Content, Button } from 'native-base';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 
@@ -11,26 +11,36 @@ class EndScreen extends React.Component {
         headerLeft: null,
     });
 
-
+    whatBanners(item){
+          if (Platform.OS === 'android'){
+            if ( item == 'bag'){
+                    imgBanner = {uri: 'bag'};
+                } else if( item == 'shoes'){
+                    imgBanner = {uri: 'shoes'};
+                } else {
+                    imgBanner = {uri: 'cintres'};
+                }
+            } else {
+               if ( item == 'bag'){
+                    imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/bag.jpg'};
+                  } else if( item == 'shoes'){
+                    imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/shoes.png'};
+                  } else {
+                    imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/cintres.jpg'};
+                  }
+            }      
+          return imgBanner;
+        }
   
     render(){ 
   
         const { navigate } = this.props.navigation;
-
+        var imgBanner;
         var item = this.props.navigation.state.params.item;
         var params = this.props.navigation.state.params.message;
-        var imgBanner = {uri: 'Shouldibuythebag/img/bag.jpg'};
-
-
-     if ( item == 'bag'){
-        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/bag.jpg'};
-      } else if( item == 'shoes'){
-        imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/shoes.png'};
-      } else {
-        imgBanner = {uri: '/Users/annagueyte/img/cintres.jpg'};
-      }
+    
+        imgBanner = this.whatBanners(this.props.navigation.state.params.item);
       
-
         // differents answer possible
         var reallywhy = "Really?! \n Why do you even take the test then?!";
         var reallywhy_gif = {uri: 'https://media.giphy.com/media/3ornkbl5jev6mIz4oU/giphy.gif'};

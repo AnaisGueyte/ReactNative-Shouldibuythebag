@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Platform } from 'react-native';
 import { PRIMARY_COLORS, COLOR } from 'react-native-material-design';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 import { Container, Content, Button } from 'native-base';
@@ -13,8 +13,15 @@ class HomeScreen extends React.Component {
   };
 
   render() {
+
+    if (Platform.OS === 'android'){
+      bakgroundImg = { uri: 'bag'};
+    } else {
+      bakgroundImg = { uri:'/Users/annagueyte/Shouldibuythebag/img/bag.jpg' };
+    }
+
     return (
-      <Image style={styles.backgroundImage} source={{ uri:'/Users/annagueyte/Shouldibuythebag/img/bag.jpg' }}>
+      <Image style={styles.backgroundImage} source={bakgroundImg}>
        
         <Container style={styles.welcome}>
 
@@ -24,12 +31,6 @@ class HomeScreen extends React.Component {
             Answer this few questions right now to find out if you really should buy that new bag, dress or pair of shoes!
           </Text>
 
-          <Container style={styles.button_container} >
-          // <Button bordered default style={styles.button} styleDisabled={{color: 'white'}} onPress={ () => navigate('items') } >
-          //     <Text style={styles.button_text}>START THE TEST</Text>
-          // </Button>
-          </Container>
-       
         </Container>
 
       </Image>

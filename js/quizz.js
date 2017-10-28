@@ -1,5 +1,5 @@
   import React, { Component } from 'react';
-  import { StyleSheet, Text, View, Image} from 'react-native';
+  import { StyleSheet, Text, View, Image, Platform} from 'react-native';
   import { Container, Button } from 'native-base';
   import { StackNavigator, NavigationActions, Navigator } from 'react-navigation';
 
@@ -18,15 +18,26 @@
     });
 
     // Catches the item selected to display the right banner on top of the quizz
+
     whatBanner(params){
       var imgBanner;
-      if ( params == 'bag'){
+      if (Platform.OS === 'android'){
+        if ( params == 'bag'){
+        imgBanner = {uri: 'bag'};
+      } else if( params == 'shoes'){
+        imgBanner = {uri: 'shoes'};
+      } else {
+        imgBanner = {uri: 'cintres'};
+      }
+    } else {
+       if ( params == 'bag'){
         imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/bag.jpg'};
       } else if( params == 'shoes'){
         imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/shoes.png'};
       } else {
         imgBanner = {uri: '/Users/annagueyte/Shouldibuythebag/img/cintres.jpg'};
       }
+    }      
       return imgBanner
     }
 
