@@ -14,7 +14,7 @@ class EndScreen extends React.Component {
     whatBanners(item){
           if (Platform.OS === 'android'){
             if ( item == 'bag'){
-                    imgBanner = {uri: 'bag'};
+                    imgBanner = {uri: 'redbag'};
                 } else if( item == 'shoes'){
                     imgBanner = {uri: 'shoes'};
                 } else {
@@ -43,48 +43,56 @@ class EndScreen extends React.Component {
       
         // differents answer possible
         var reallywhy = "Really?! \n Why do you even take the test then?!";
-        var reallywhy_gif = {uri: 'https://media.giphy.com/media/3ornkbl5jev6mIz4oU/giphy.gif'};
-
+        var reallywhy_gif;
         var thankHonesty = "I appreciate your honesty. Honesty made you save cash for something better.";
-        var thankHonesty_gif = {uri: 'https://media.giphy.com/media/dEugCWatqhdQY/giphy.gif'};
-
+        var thankHonesty_gif;
         var dontBuyIt = "Hum... Don't buy it.";
-        var dontBuyIt_gif = {uri: 'https://media.giphy.com/media/l0MYSSCIrv8aUaBsQ/giphy.gif'};
-
+        var dontBuyIt_gif;
         var jeezdontbuyit = "Jeez! Don't buy it!";
-        var jeezdontbuyit_gif =  {uri: 'https://media.giphy.com/media/EsmlrgWNx5v0Y/giphy.gif'};
-
+        var jeezdontbuyit_gif;
         var treatyoself = "Well then, why do you have doubt about buying the " +  item  +  "? \n Treat yo self!";
-        var treatyoself_gif = {uri: 'https://media.giphy.com/media/lAbxg2qCfOwKY/giphy.gif'};
-        
+        var treatyoself_gif;
         var lifetooshort = "Life is too short, buy the " + item ;
-        var lifetooshort_gif = { uri: 'https://media.giphy.com/media/iIneJpUbaEZva/giphy.gif'};
-
-
-        // Switch case
-
+        var lifetooshort_gif;
+        
+        if (Platform.OS === 'android'){
+            reallywhy_gif = {uri: 'really'};
+            thankHonesty_gif = {uri: 'honesty'};
+            dontBuyIt_gif = {uri: 'dontbuyit'};
+            jeezdontbuyit_gif = {uri: 'jeez'}; 
+            treatyoself_gif = {uri: 'treatyoself'};
+            lifetooshort_gif = {uri: 'lifeistooshort'};           
+        } else {
+            reallywhy_gif = {uri: '/Users/annagueyte/Shouldibuythebag/img/really.gif'}; 
+            thankHonesty_gif = {uri: '/Users/annagueyte/Shouldibuythebag/img/honesty.gif'}; 
+            dontBuyIt_gif = {uri: '/Users/annagueyte/Shouldibuythebag/img/dontbuyit.gif'};
+            jeezdontbuyit_gif = {uri: '/Users/annagueyte/Shouldibuythebag/img/jeez.gif'};
+            treatyoself_gif = {uri: '/Users/annagueyte/Shouldibuythebag/img/treatyoself.gif'}; 
+            lifetooshort_gif  = { uri: '/Users/annagueyte/Shouldibuythebag/img/lifeistooshort.gif'};            
+        }
+ 
         var message;
         var gif;
 
-      if (params ==  'really'){
-        message = reallywhy;
-        gif = reallywhy_gif;
-    } else if (params == 'honesty'){
-        message = thankHonesty;
-        gif = thankHonesty_gif;
-    } else if (params == 'dontbuyit'){
-        message = dontBuyIt;
-        gif = dontBuyIt_gif;
-     } else if( params == 'jeez'){
-        message = jeezdontbuyit;
-        gif = jeezdontbuyit_gif;
-     } else if( params ==  'treatyoself'){
-        message = treatyoself;
-        gif = treatyoself_gif;
-     } else if ( params ==  'lifetooshort'){
-        message = lifetooshort;
-        gif = lifetooshort_gif;
-     }
+        if (params ==  'really'){
+            message = reallywhy;
+            gif = reallywhy_gif;
+        } else if (params == 'honesty'){
+            message = thankHonesty;
+            gif = thankHonesty_gif;
+        } else if (params == 'dontbuyit'){
+            message = dontBuyIt;
+            gif = dontBuyIt_gif;
+        } else if( params == 'jeez'){
+            message = jeezdontbuyit;
+            gif = jeezdontbuyit_gif;
+        } else if( params ==  'treatyoself'){
+            message = treatyoself;
+            gif = treatyoself_gif;
+        } else if ( params ==  'lifetooshort'){
+            message = lifetooshort;
+            gif = lifetooshort_gif;
+        }
 
         // Return the view
         return (

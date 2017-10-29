@@ -23,7 +23,7 @@
       var imgBanner;
       if (Platform.OS === 'android'){
         if ( params == 'bag'){
-        imgBanner = {uri: 'bag'};
+        imgBanner = {uri: 'redbag'};
       } else if( params == 'shoes'){
         imgBanner = {uri: 'shoes'};
       } else {
@@ -225,8 +225,7 @@
 
 
     render(){ 
-    
-    //const { navigate } = this.props.navigation;
+  
     imgBanner = this.whatBanner(this.props.navigation.state.params.item);
 
     return (

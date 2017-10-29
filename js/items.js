@@ -17,13 +17,13 @@ class ItemsScreen extends React.Component {
     var imgDress;
 
     if (Platform.OS === 'android'){
-      imgBag ={ uri: 'sac'};
-      imgShoes ={ uri: 'shoesillu'};
-      imgDress ={ uri: 'dressillu'};
+      imgBag = { uri: 'sac'};
+      imgShoes = { uri: 'shoesillu'};
+      imgDress = { uri: 'dressillu'};
     } else{
-      imgBag ={ uri:'/Users/annagueyte/Shouldibuythebag/img/illubag.jpg'};
-      imgShoes ={ uri:'/Users/annagueyte/Shouldibuythebag/img/shoesillu.jpg'};
-      imgDress ={ uri:'/Users/annagueyte/Shouldibuythebag/img/dressillu.jpg'};
+      imgBag = { uri:'/Users/annagueyte/Shouldibuythebag/img/illubag.jpg'};
+      imgShoes = { uri:'/Users/annagueyte/Shouldibuythebag/img/shoesillu.jpg'};
+      imgDress = { uri:'/Users/annagueyte/Shouldibuythebag/img/dressillu.jpg'};
       }
 
     const { navigate } = this.props.navigation;
